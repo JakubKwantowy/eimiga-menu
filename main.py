@@ -23,11 +23,11 @@ def close():
 def run():
     to_run = simpledialog.askstring("Eimiga Menu", "Command: ")
     if not to_run: return
-    t = multiprocessing.Process(target=lambda:os.system(to_run))
+    t = multiprocessing.Process(target=lambda:os.system("gnome-terminal -- "+to_run))
     t.start()
 
 def bash():
-    t = multiprocessing.Process(target=lambda:os.system("/bin/bash"))
+    t = multiprocessing.Process(target=lambda:os.system("gnome-terminal /bin/bash"))
     t.start()
 
 def main():
