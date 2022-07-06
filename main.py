@@ -26,6 +26,10 @@ def run():
     t = multiprocessing.Process(target=lambda:os.system(to_run))
     t.start()
 
+def bash():
+    t = multiprocessing.Process(target=lambda:os.system("/bin/bash"))
+    t.start()
+
 def main():
     global root
     global icon
@@ -54,9 +58,19 @@ def main():
         label='About',
         command=lambda:messagebox.showinfo("About Eimiga Menu", "Eimiga Menu by JakubKwantowy\nv1.0\n\xA9 JakubKwantowy 2022"),
     )
+    program_menu = tk.Menu(menubar)
+    program_menu.add_command(
+        label='Bash',
+        command=bash,
+    )
     menubar.add_cascade(
         label="File",
         menu=file_menu,
+        underline=0
+    )
+    menubar.add_cascade(
+        label="Programs",
+        menu=program_menu,
         underline=0
     )
     menubar.add_cascade(
